@@ -1,0 +1,57 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000256ac9d84a0 .scope module, "lab01_hello_logic" "lab01_hello_logic" 2 1;
+ .timescale 0 0;
+L_00000256ac9de9a0 .functor AND 1, v00000256ac9d8630_0, v00000256ac8833c0_0, C4<1>, C4<1>;
+L_00000256ac9dec70 .functor OR 1, v00000256ac9d8630_0, v00000256ac8833c0_0, C4<0>, C4<0>;
+L_00000256ac882ea0 .functor NOT 1, v00000256ac9d8630_0, C4<0>, C4<0>, C4<0>;
+v00000256ac9d8630_0 .var "a", 0 0;
+v00000256ac882bf0_0 .net "and_out", 0 0, L_00000256ac9de9a0;  1 drivers
+v00000256ac8833c0_0 .var "b", 0 0;
+v00000256ac9debd0_0 .net "not_a", 0 0, L_00000256ac882ea0;  1 drivers
+v00000256ac9de900_0 .net "or_out", 0 0, L_00000256ac9dec70;  1 drivers
+    .scope S_00000256ac9d84a0;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "lab01_hello_logic.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000256ac9d84a0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000256ac9d8630_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000256ac8833c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000256ac9d8630_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000256ac8833c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000256ac9d8630_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000256ac8833c0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000256ac9d8630_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000256ac8833c0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000256ac9d84a0;
+T_1 ;
+    %vpi_call 2 24 "$display", "time a b and or not_a" {0 0 0};
+    %vpi_call 2 25 "$monitor", "%4t %b %b  %b   %b   %b", $time, v00000256ac9d8630_0, v00000256ac8833c0_0, v00000256ac882bf0_0, v00000256ac9de900_0, v00000256ac9debd0_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "lab01_hello_logic.v";
