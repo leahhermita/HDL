@@ -1,0 +1,69 @@
+{
+  "extensionVersion": "1.5.4",
+  "fileName": "c:\\Users\\User\\Downloads\\lab05\\lab05\\lab05_compare_alu.vcd",
+  "markerTime": null,
+  "altMarkerTime": null,
+  "displayTimeUnit": "ps",
+  "selectedSignal": {
+    "name": "tb_compare_alu.alu.zero",
+    "msb": -1,
+    "lsb": -1
+  },
+  "zoomRatio": 0.1193256779826314,
+  "scrollLeft": 0,
+  "defaultPixelTime": 100000,
+  "displayedSignals": [
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 9,
+      "name": "tb_compare_alu.alu.a",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "a",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 11,
+      "name": "tb_compare_alu.alu.op",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "op",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 13,
+      "name": "tb_compare_alu.alu.result",
+      "numberFormat": "hexadecimal",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "result",
+      "renderType": "multiBit",
+      "valueLinkEnable": false
+    },
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 12,
+      "name": "tb_compare_alu.alu.zero",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "zero",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    }
+  ]
+}
