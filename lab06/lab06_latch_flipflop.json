@@ -1,0 +1,30 @@
+{
+  "extensionVersion": "1.5.4",
+  "fileName": "c:\\Users\\User\\Downloads\\lab06\\lab06_latch_flipflop.vcd",
+  "markerTime": null,
+  "altMarkerTime": null,
+  "displayTimeUnit": "ps",
+  "selectedSignal": {
+    "name": "tb_latch_flipflop.reset_n",
+    "msb": -1,
+    "lsb": -1
+  },
+  "zoomRatio": 0.101494708994709,
+  "scrollLeft": 0,
+  "defaultPixelTime": 100000,
+  "displayedSignals": [
+    {
+      "dataType": "netlist-variable",
+      "netlistId": 5,
+      "name": "tb_latch_flipflop.reset_n",
+      "numberFormat": "binary",
+      "colorIndex": 0,
+      "rowHeight": 1,
+      "verticalScale": 1,
+      "nameType": "fullPath",
+      "customName": "reset_n",
+      "renderType": "binary",
+      "valueLinkEnable": false
+    }
+  ]
+}
