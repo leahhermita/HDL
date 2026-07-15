@@ -1,0 +1,118 @@
+$date
+	Thu Jul 16 00:46:13 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_shift_register $end
+$var wire 1 ! serial_out $end
+$var wire 4 " q [3:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ direction $end
+$var reg 1 % load $end
+$var reg 4 & parallel_in [3:0] $end
+$var reg 1 ' reset $end
+$var reg 1 ( serial_in $end
+$scope module uut $end
+$var wire 1 # clk $end
+$var wire 1 $ direction $end
+$var wire 1 % load $end
+$var wire 4 ) parallel_in [3:0] $end
+$var wire 1 ' reset $end
+$var wire 1 ( serial_in $end
+$var wire 1 ! serial_out $end
+$var reg 4 * q [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 *
+b1011 )
+0(
+1'
+b1011 &
+0%
+0$
+0#
+b0 "
+0!
+$end
+#5000
+1#
+#10000
+0#
+#12000
+1%
+0'
+#15000
+1!
+b1011 "
+b1011 *
+1#
+#20000
+0#
+#22000
+1(
+0%
+#25000
+b1101 "
+b1101 *
+1#
+#30000
+0#
+#35000
+0!
+b1110 "
+b1110 *
+1#
+#40000
+0#
+#42000
+1!
+0(
+1$
+#45000
+b1100 "
+b1100 *
+1#
+#50000
+0#
+#55000
+b1000 "
+b1000 *
+1#
+#60000
+0#
+#65000
+0!
+b0 "
+b0 *
+1#
+#70000
+0#
+#75000
+1#
+#80000
+0#
+#82000
+1(
+#85000
+b1 "
+b1 *
+1#
+#90000
+0#
+#95000
+b11 "
+b11 *
+1#
+#100000
+0#
+#102000
