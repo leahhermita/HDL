@@ -1,0 +1,90 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}{\f1 Courier New;}}
+\fs28\b Smart School-Zone Traffic Controller Using a Verilog FSM\b0\par
+\par
+\b Problem Statement\b0\par
+Traditional traffic-light controllers use fixed timing regardless of school hours or pedestrian activity. In school zones, this can create safety risks because children frequently cross the road. This project extends the Lab 10 traffic-light controller into a smart school-zone intersection controller using a Verilog finite state machine.\par
+\par
+\b Objectives\b0\par
+1. Control traffic on the main road and side road.\par
+2. Support normal mode and school mode.\par
+3. Respond to pedestrian crossing requests.\par
+4. Provide a walk signal with countdown timing.\par
+5. Operate safely using proper state transitions.\par
+6. Return to a safe state when reset is activated.\par
+\par
+\b System Inputs and Outputs\b0\par
+Inputs: clk, reset, school_mode, flash_mode, ped_request.\par
+Outputs: main_light, side_light, walk_light, countdown.\par
+\par
+\b FSM States\b0\par
+S0 - Main Green\par
+S1 - Main Yellow\par
+S2 - Side Green\par
+S3 - Side Yellow\par
+S4 - Walk State / Pedestrian Crossing\par
+\par
+\b Required State Order\b0\par
+Reset -> S0 Main Green -> S1 Main Yellow -> S2 Side Green -> S4 Walk State if ped_request is active -> S3 Side Yellow -> S0 Main Green.\par
+\par
+If no pedestrian request is active, the controller skips S4 and goes directly from S2 Side Green to S3 Side Yellow.\par
+\par
+\b State Table\b0\par
+S0 Main Green: main_light = Green, side_light = Red, walk_light = Off.\par
+S1 Main Yellow: main_light = Yellow, side_light = Red, walk_light = Off.\par
+S2 Side Green: main_light = Red, side_light = Green, walk_light = Off.\par
+S4 Walk State: main_light = Red, side_light = Red, walk_light = On, countdown active.\par
+S3 Side Yellow: main_light = Red, side_light = Yellow, walk_light = Off.\par
+\par
+\b Timing Explanation\b0\par
+In normal mode, main green lasts 10 seconds, main yellow lasts 3 seconds, side green lasts 8 seconds, and side yellow lasts 3 seconds.\par
+\par
+In school mode, main green is shortened to 8 seconds, side green is extended to 10 seconds, and the pedestrian walk countdown lasts 8 seconds.\par
+\par
+The simulation treats each clock tick as one timing unit. The countdown output displays the remaining pedestrian crossing time during the walk state.\par
+\par
+\b Pedestrian Request Behavior\b0\par
+When ped_request is activated, the request is latched by the controller. It does not interrupt a yellow transition or immediately stop the current traffic phase. Instead, the controller finishes the safe sequence and enters the walk state after side green. During the walk state, both roads are red and walk_light is turned on.\par
+\par
+\b Flashing Yellow Mode\b0\par
+The flash_mode input simulates inactive school periods outside school hours. When flash_mode = 1 and school_mode = 0, the main road flashes yellow while the side road remains red. This indicates caution while reducing unnecessary traffic delay.\par
+\par
+\b Safe Reset Behavior\b0\par
+When reset = 1, the controller immediately returns to S0 Main Green. The outputs become main_light = Green, side_light = Red, walk_light = Off, and countdown = 0.\par
+\par
+\b Safety Rules\b0\par
+1. Main and side roads are never green at the same time.\par
+2. Yellow always appears before changing right-of-way.\par
+3. Reset always returns to a safe starting state.\par
+4. Walk signal is active only during the pedestrian walk state.\par
+5. Pedestrian requests do not interrupt yellow transitions.\par
+\par
+\b Testbench Scenarios\b0\par
+The testbench verifies reset operation, normal traffic cycle, school mode timing, flashing yellow mode, pedestrian request handling, walk countdown, reset during side green, multiple pedestrian requests while one is already being served, and the safety condition that both roads are never green simultaneously.\par
+\par
+\b Simulation Results\b0\par
+The simulation produced the following final result:\par
+\par
+{\f1 === SIMULATION PASSED: all smart school-zone controller checks succeeded ===}\par
+\par
+The generated waveform file is smart_school_zone.vcd.\par
+\par
+\b Waveform Observations\b0\par
+The waveform shows that reset returns the controller to main green and side red. It also shows the normal state sequence, school mode timing changes, pedestrian request response, walk_light activation, countdown from 8 to 0, flashing yellow behavior, and safe reset during side green.\par
+\par
+\b Guide Questions and Answers\b0\par
+\b 1. What state does the controller enter after reset?\b0\par
+The controller enters S0 Main Green. Main road is green, side road is red, walk_light is off, and countdown is zero.\par
+\par
+\b 2. What is the required state order?\b0\par
+The required order is S0 Main Green, S1 Main Yellow, S2 Side Green, S4 Walk if a pedestrian request is active, S3 Side Yellow, then back to S0 Main Green.\par
+\par
+\b 3. How does ped_request affect behavior?\b0\par
+The ped_request signal creates a visible behavior change by adding the pedestrian walk state with countdown after the safe side-green phase.\par
+\par
+\b 4. How is safety guaranteed?\b0\par
+Safety is guaranteed by preventing both roads from being green at the same time, using yellow transition states, activating walk only when both traffic lights are red, and returning to a safe state on reset.\par
+\par
+\b 5. What does the waveform prove?\b0\par
+The waveform proves that the FSM follows the correct state order, changes timing in school mode, handles pedestrian requests safely, counts down during the walk state, supports flashing yellow mode, and resets safely.\par
+}
